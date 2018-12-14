@@ -1,0 +1,30 @@
+﻿body {
+	background-image: url("images/pokemon_image.jpg");
+	opacity:0.9;
+
+}
+
+h2 {
+    color: navy;
+    margin-left: 20px;
+}
+
+
+#leftnav {
+	position: fixed;
+	height: 100%;
+	width: 250px;
+	left: 4px;
+	background-color: #374785;
+}
+
+div.content {
+	
+	width: 80%;
+	margin-left: 250px;
+	padding: 10px;
+	position: relative;
+
+}
+
+

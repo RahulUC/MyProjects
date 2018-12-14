@@ -1,0 +1,119 @@
+﻿@page
+@model InventoryPrdListModel
+@{
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#Products {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#Products td, #Products th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#Products tr:nth-child(even){background-color: #f2f2f2;}
+
+#Products tr:hover {background-color: rgb(221, 221, 221);}
+
+#Products th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+<br>
+<table id="Products">
+       <thead>
+                <tr>
+                    <th>Inventory Name</th>
+                    <th>Manufacture date</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Availability</th>
+                    <th>Size</th>
+                    <th>Size Description</th>
+                    <th>Price</th>
+                    <th>PriceRange</th>
+                </tr>
+            </thead>
+  <tbody>
+        
+            @foreach(var code in Model.Inventories) 
+    {
+        <tr>
+        <td>@code.InventoryName</td>
+        
+        <td>@code.Manufacture_date</td>
+        <td>@code.Product.Name</td>
+        <td>@code.Quantity</td>
+        @if(code.Quantity >0)
+            {
+            <td>Available</td>
+            }
+            else           
+             {
+            <td>Not Available</td>
+            }
+        <td>@code.Product.Size</td>
+        @if(code.Product.Size=="s" || code.Product.Size=="S")
+        {
+            <td>Small</td>
+        }
+        else if(code.Product.Size=="m" || code.Product.Size=="M")
+        {
+            <td>Medium</td>
+        }
+        else if(code.Product.Size=="l" || code.Product.Size=="L")
+        {
+            <td>Large</td>
+        }
+        else if(code.Product.Size=="xl" || code.Product.Size=="XL")
+        {
+            <td>Extra Large</td>
+        }
+        else
+        {
+            <td>Size not available.</td>
+        }
+        <td>@code.Product.Price</td>
+        @if(code.Product.Price>0 && code.Product.Price<=20)
+        {
+            <td>$</td>
+        }
+        else if(code.Product.Price>20 && code.Product.Price<=40)
+        {
+             <td>$&</td>
+        }
+        else if(code.Product.Price>40 && code.Product.Price<=100)
+        {
+             <td>$$$</td>
+        }
+        else
+        {
+             <td>$$$$</td>
+        }
+        </tr> 
+    } 
+    </tbody> 
+</table>
+  
+
+</table>
+
+</body>
+</html>
+
+

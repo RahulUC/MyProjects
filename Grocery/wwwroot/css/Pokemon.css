@@ -1,0 +1,21 @@
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(/images/pokemon_image.jpg);
+    background-size: cover;
+}
+
+p {
+    color: white;
+}
+
+h1 {
+    color: white
+}
+
+.pokemon-name {
+    color: yellow;
+}
+
+a {
+    color: greenyellow;
+}
+

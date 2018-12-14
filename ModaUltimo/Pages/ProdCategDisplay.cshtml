@@ -1,0 +1,69 @@
+﻿@page
+@model ProdCategDisplayModel
+@{
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#Products {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#Products td, #Products th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#Products tr:nth-child(even){background-color: #f2f2f2;}
+
+#Products tr:hover {background-color: rgb(221, 221, 221);}
+
+#Products th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+<br>
+<table id="Products">
+       <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Description</th>
+                    <th>Product Name list</th>
+                </tr>
+            </thead>
+  <tbody>
+        
+            @foreach(var code in Model.Categories) 
+    {
+        <tr>
+        <td>@code.Name</td>
+        <td>@code.Desc</td> 
+        <td>   
+      @foreach(var prd in code.Products) 
+    {
+            <ul><li>@prd.Name</li></ul>   
+    }
+    
+    </td>
+        </tr> 
+    } 
+    </tbody> 
+</table>
+  
+
+</table>
+
+</body>
+</html>
+

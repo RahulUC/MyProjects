@@ -1,0 +1,58 @@
+﻿
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+<!-- HTML WILL GO HERE -->
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Grocery.css">
+</head>
+
+<h1>My Grocery Store</h1>
+<div id="app">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th style="background-color: cornflowerblue;color: white;">Name</th>
+                <th style="background-color: cornflowerblue;color: white;">Price</th>
+                <th style="background-color: cornflowerblue;color: white;">Status</th>
+                <th style="background-color: cornflowerblue;color: white;">Action</th>
+            </tr>
+        </thead>
+        <tbody id="grocerylist">
+            <tr v-for="item in items">
+                <td>{{item.product}}</td>
+                <td>{{item.price}}</td>
+                <td v-if=item.isSold>Purchased</td>
+                <td v-else><a href="#" class="item-update" v-on:click.stop.prevent="updateItem(item)">Buy item</a></td>
+                <td><a href="#" class="item-delete" v-on:click.stop.prevent="deleteItem(item)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="$('#createPrdForm').show();">Add Item</button>
+    <div>
+        <a class="json" href="/api/groceries">View JSON Data</a>
+    </div>
+    <div>
+        <hr />
+        <form id="createPrdForm" class="form" style="display:none" v-on:submit.stop.prevent="addItem">
+            <h4>Add new Product</h4>
+            <div class="form-group">
+                <label for="product">Product</label>
+                <input type="text" class="form-control" id="product" placeholder="product" v-model="form.product"/ />
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="price" v-model="form.price" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    @section Scripts {
+        <script type="text/javascript" src="~/js/groceries.js"></script>
+    }
+

@@ -1,0 +1,32 @@
+﻿@page
+@model PokemonModel
+@{
+    ViewData["Title"] = "Pokemon";
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Pokemon.css">
+</head>
+<body>
+<br>
+<h1>Get Pokémon Data</h1>
+<div>
+    <p>Enter your favorite number 1-800 to find your pokematch:</p>
+    <input type="number" min="1" value="1" class="pokemon-input"></input>
+</div>
+<br />
+<div>
+    <p>Pokemon Name:</p><p class="pokemon-name" style="font-size:50px"></p>
+</div>
+
+<div>
+    <p>Image:</p>
+    <img class="pokemon-image" width="250" height="250" align="middle" />
+    <button class="pokemon-button" align="bottom">Load Pokémon Data</button>
+</div>
+
+<div>
+    <a href="https://pokeapi.co/api/v2/pokemon/">View JSON Data</a>
+</div>
+</body>
+<script type="text/javascript" src="~/js/Pokemon.js"></script>
+

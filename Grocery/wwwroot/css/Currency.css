@@ -1,0 +1,26 @@
+
+#box {
+    width: 300px;
+    height: 150px;
+    margin: 0px auto;
+    border: 2px solid black;
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/images/Currency .jpg');
+    background-size: cover;
+}
+
+h2 {
+    text-align: center;
+    color: azure;
+}
+
+table {
+    margin: 0px auto;
+}
+
+a {
+    color: greenyellow;
+}
+

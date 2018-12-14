@@ -1,0 +1,73 @@
+﻿@page
+@model StoreListModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#Store {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#Store td, #Store th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#Store tr:nth-child(even){background-color: #f2f2f2;}
+
+#Store tr:hover {background-color: rgb(221, 221, 221);}
+
+#Store th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+<br>
+<table id="Store">
+       <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Store State</th>
+                    <th>Zip</th>
+                    <th>Inventory Name</th>
+
+                    
+                </tr>
+            </thead>
+  <tbody>
+        
+            @foreach(var code in Model.Stores) 
+    {
+        <tr>
+        <td>@code.City</td>
+        <td>@code.State</td>
+        <td>@code.Zip</td>
+        <td>
+        @foreach(var inv in @code.Inventories) 
+    {
+        <ul>
+            <li>@inv.InventoryName</li>
+            </ul>        
+    }
+    </td>
+    
+        </tr> 
+    } 
+    </tbody> 
+</table>
+  
+
+</table>
+
+</body>
+</html>

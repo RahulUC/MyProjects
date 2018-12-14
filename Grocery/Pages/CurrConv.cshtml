@@ -1,0 +1,60 @@
+﻿@page
+@model BitcoinModel
+@{
+    ViewData["Title"] = "CurrConv";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Currency Converter</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Currency.css">
+    <script type="text/javascript" src="~/js/Currency.js"></script>
+</head>
+<body onload="convertCurrency();">
+    <div id="box">
+        <h2>Currency Converter</h2>
+        <table>
+            <tr>
+                <td><input id="fromAmount" type="text" size="10" value="1" onKeyup="convertCurrency();" onkeypress="javascript:return isNumber(event)" /></td>
+                <td>
+                    <select id="from" onchange="convertCurrency();">
+                        <option value="EUR">Europe (EUR)</option>
+                        <option value="USD" selected>United States (USD)</option>
+                        <option value="GBP">Britain  (GBP)</option>
+                        <option value="NGN">Nigeria (NGN)</option>
+                        <option value="INR">India (INR)</option>
+                        <option value="RUB">Russia (RUB)</option>
+                        <option value="MXN">Mexico (MXN)</option>
+                        <option value="NZD">New Zealand (NZD)</option>
+                        <option value="AED">UAE (AED)</option>
+                        <option value="ZAR">South Africa (ZAR)</option>
+                        <option value="CAD">Canadian DOllar (CAD)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input id="toAmount" type="text" size="10" disabled /></td>
+                <td>
+                    <select id="to" onchange="convertCurrency();">
+                        <option value="USD">United States (USD)</option>
+                        <option value="GBP">Britain  (GBP)</option>
+                        <option value="NGN">Nigeria (NGN)</option>
+                        <option value="INR">India (INR)</option>
+                        <option value="RUB">Russia (RUB)</option>
+                        <option value="MXN">Mexico (MXN)</option>
+                        <option value="NZD">New Zealand (NZD)</option>
+                        <option value="AED">UAE (AED)</option>
+                        <option value="ZAR">South Africa (ZAR)</option>
+                        <option value="CAD">Canadian DOllar (CAD)</option>
+                        <option value="EUR" selected>Europe (EUR)</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <a href="https://data.fixer.io/api/latest?access_key=e989923b13543e675bfe8dbc6a233999&base=">View JSON Data</a>
+    </div>
+</body>
+</html>

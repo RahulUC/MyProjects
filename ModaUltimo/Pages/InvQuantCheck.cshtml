@@ -1,0 +1,43 @@
+﻿@page
+@model InvQuantCheckModel
+@{
+}
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" style="margin-top: 50px;">
+            
+            <div class="form-group">
+                <label class="control-label">Inventory Name</label>
+                <div>
+                    <p class="form-control-static">@Model.Inventory.InventoryName</p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Quantity Check</label>
+                <div>
+                    <p class="form-control-static">@Model.Inventory.Quantity</p>
+                </div>
+            </div>
+            
+            @if(Model.Inventory.Quantity != 0) {
+                
+                <input type="hidden" asp-for="InvCheckForm.InventoryID" />
+                <div class="form-group">
+                    <label asp-for="InvCheckForm.QuantityCheck" class="control-label"></label>
+                    <input asp-for="InvCheckForm.QuantityCheck" class="form-control" />
+                    <span asp-validation-for="InvCheckForm.QuantityCheck" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Quantity Check" class="btn btn-danger" />
+                </div>
+            } else {
+                <div class="alert alert-warning">
+                    <p>There is no more quantity available.</p>
+                </div>
+            }
+        </form>
+    </div>
+</div>

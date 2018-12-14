@@ -1,0 +1,50 @@
+﻿@page
+@model Product_SearchModel
+@{
+}
+
+<form action="" method="POST" style="margin-top: 50px;">
+  <div class="form-group">
+    <label class="control-label" for="search">Products</label>
+    <input type="text" class="form-control" name="search" id="search" />
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Search Products" class="btn btn-default" />
+  </div>
+</form>
+
+ @if(Model.SearchCompleted) {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.SearchResults.Count > 0) {
+                    @foreach(var Product in Model.SearchResults) {
+                        <tr>
+                            <td>@Product.Name</td>
+                            <td>@Product.Size</td>
+                            <td>@Product.Price</td>
+                            
+                        </tr>
+                    }
+                } else {
+                    <tr class="danger">
+                        <td colspan="4" class="text-center">
+                            No results found for term "@Model.Search"
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    } else {
+        <div class="alert alert-info">
+            <p>
+                Enter the search terms into the box and click <strong>Search Products</strong>
+            </p>
+        </div>
+    }

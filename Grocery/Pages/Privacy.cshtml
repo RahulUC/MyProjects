@@ -1,0 +1,31 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<script>
+   var apikey= '180e646c1d455a96d01adce6a74ac861';
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                info: null,
+                loading: true,
+                errored: false
+            }
+        },
+        mounted() {
+            axios
+                .get('https://api.coindesk.com/v1/bpi/currentprice.json' + apikey)
+                .then(response => {
+                    this.info = response.data.bpi
+                })
+                .catch(error => {
+                    console.log(error)
+                    this.errored = true
+                })
+                .finally(() => this.loading = false)
+        }
+    })
+        </script>
